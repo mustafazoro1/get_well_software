@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Zizi’s Get-Well Care Package"
+description = "A cozy, mobile-first get-well and study-motivation page from Zizi to Cute Monster in Lahore, with interactive mini-games, a Bablu hug generator, a daily care checklist, and a gentle music player."
+version = "1.0.0"
+id = "artifacts/get-well-cards"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21399
+
+[services.development]
+run = "pnpm --filter @workspace/get-well-cards run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/get-well-cards", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/get-well-cards/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21399"
+BASE_PATH = "/"
