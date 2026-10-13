@@ -26,7 +26,7 @@ pnpm --filter @workspace/get-well-cards run dev
 ## Build
 
 ```bash
-pnpm --filter @workspace/get-well-cards run build   # outputs to artifacts/get-well-cards/dist/public
+pnpm --filter @workspace/get-well-cards run build   # outputs to artifacts/get-well-cards/dist
 pnpm --filter @workspace/get-well-cards run typecheck
 ```
 
@@ -35,7 +35,8 @@ pnpm --filter @workspace/get-well-cards run typecheck
 The repo is a pnpm monorepo; only the app ships.
 
 - **Root Directory:** `artifacts/get-well-cards`
+- **Include files outside the root directory in the Build Step:** ON
 - **Build Command:** `pnpm run build`
-- **Output Directory:** `dist/public`
+- **Output Directory:** `dist`
 
 `artifacts/api-server` and `artifacts/mockup-sandbox` are dev leftovers — not deployed.
